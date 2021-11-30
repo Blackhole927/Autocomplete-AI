@@ -3,12 +3,14 @@ import requests
 context = "In a shocking finding, scientist discovered a herd of unicorns living in a remote, previously unexplored valley, in the Andes Mountains. Even more surprising to the researchers was the fact that the unicorns spoke perfect English."
 
 max_length = 100
+tempature = 1.0
+top_probability = 0.9
 
 payload = {
     "context": context,
     "token_max_length": max_length,
-    "temperature": 1.0,
-    "top_p": 0.9,
+    "temperature": tempature,
+    "top_p": top_probability,
 }
 response = requests.post("http://api.vicgalle.net:5000/generate", params=payload).json()
 print(response['text'])
